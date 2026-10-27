@@ -146,6 +146,44 @@ Current limitations include:
 
 The project is an experimental study of workload-aware core allocation and the use of machine learning to reproduce scheduling decisions.
 
+## Visual Results and Analysis
+
+The following visualizations illustrate benchmark performance, workload-aware core allocation, deadline-based scheduling decisions, and the Random Forest model's evaluation results.
+
+### 1. Average RTL Benchmark Cycles vs. Core Count
+
+Shows how increasing the requested core count affects average RTL benchmark cycles. Fewer cycles indicate faster simulated execution for the tested workload.
+
+![Average RTL Benchmark Cycles vs. Core Count]
+<img width="2176" height="1292" alt="01_cycles_by_core_and_workload" src="https://github.com/user-attachments/assets/bd3ab6bb-bf86-48ac-84e2-8820e462c059" />
+
+
+### 2. Workload Scaling: RTL Cycles vs. Workload Size
+
+Illustrates how execution cycles increase with workload size across different core counts. Smaller workloads may require fewer cores, while larger workloads can benefit from additional cores when reduced execution time justifies the allocation.
+
+![Workload Scaling: RTL Cycles vs. Workload Size]
+<img width="2176" height="1292" alt="02_workload_scaling" src="https://github.com/user-attachments/assets/7672c9ea-c423-4b82-9e36-840ac1c463e9" />
+
+
+### 3. Policy-Generated Core Selections by Deadline Ratio
+
+Shows how the deadline-aware scheduling policy selects different core counts under varying deadline constraints. Relaxed deadlines may allow fewer cores, while tighter deadlines can favor additional cores.
+
+![Policy-Generated Core Selections by Deadline Ratio]
+<img width="2176" height="1292" alt="03_core_selection_by_deadline" src="https://github.com/user-attachments/assets/cb025d17-b800-4cb1-8703-425b2aabba41" />
+
+
+### 4. Random Forest Evaluation on Held-Out Examples
+
+Presents the confusion matrix for predicted core counts compared with policy-generated labels. The model achieved 75% accuracy, correctly matching 36 of 48 held-out examples.
+
+![Random Forest Core Prediction Confusion Matrix]
+<img width="1190" height="1289" alt="04_heldout_confusion_matrix" src="https://github.com/user-attachments/assets/34001b47-f567-4e72-a03e-3fa1594ad564" />
+
+
+> **Note:** The reported model accuracy measures agreement with policy-generated labels. It does not establish globally optimal scheduling or measured hardware power savings.
+
 ## Repository Structure
 
 ```text
